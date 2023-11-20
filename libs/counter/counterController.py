@@ -20,11 +20,11 @@ class CounterController:
         """
         self.__counter = counter
 
-        with keyboard.Listener(on_press=_incrementCount) as listener:
+        with keyboard.Listener(on_press=self._incrementCount) as listener:
             listener.join()
 
     def _incrementCount(self) -> None:
         """_incrementCount
         Counterインスタンスのタイプ数を1増やす
         """
-        __counter.increment()
+        self.__counter.increment()
