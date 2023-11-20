@@ -1,8 +1,14 @@
 import flet as ft
 
+from libs.counter import (
+    counterController,
+    counterModel
+)
+
+
 
 def main(page: ft.Page):
-    page.add(ft.SafeArea(ft.Text("Hello, Flet!")))
+    page.title = "demo"
 
 
 ft.app(main)

@@ -8,9 +8,6 @@ class Counter:
     Attributes:
         __count (int): 現在のタイプ数
     """
-
-    __count: int = 0
-
     def increment(self) -> None:
         """現在のタイプ数を1増やす"""
         self.__count += 1

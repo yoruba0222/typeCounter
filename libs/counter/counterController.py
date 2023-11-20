@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from pynput import keyboard
 
-from libs.counter.keyModel import Counter
+from .counterModel import Counter
 
 
 class CounterController:
@@ -11,9 +11,6 @@ class CounterController:
     Attributes:
         __counter (Counter): Counterインスタンス
     """
-
-    self.__counter: Counter = None
-
     def __init__(self, counter: Counter) -> None:
         """__init__
         コンストラクタ
