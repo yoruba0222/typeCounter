@@ -5,6 +5,7 @@ import abc
 class Observer(metaclass=abc.ABCMeta):
     """Observer
     オブザーバ
+    サブジェクトからの値変更通知を受け取り値を変更する
 
     Args:
         metaclass (_type_, optional): インタフェース
