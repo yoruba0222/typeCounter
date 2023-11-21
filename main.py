@@ -8,7 +8,8 @@ from libs.counter import (
 
 
 def main(page: ft.Page):
-    page.title = "demo"
+    page.title = "Flet counter example"
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER
 
 
 ft.app(main)

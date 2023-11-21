@@ -2,10 +2,12 @@
 import abc
 
 
+# interface
 class Observer(metaclass=abc.ABCMeta):
     """Observer
-    オブザーバ
+    オブザーバインタフェース
     サブジェクトからの値変更通知を受け取り値を変更する
+    コンストラクタでsubjectを外部から注入して値を取得するのがいい
 
     Args:
         metaclass (_type_, optional): インタフェース

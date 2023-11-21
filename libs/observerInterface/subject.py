@@ -4,9 +4,10 @@ import abc
 from observer import Observer
 
 
+# interface
 class Subject(metaclass=abc.ABCMeta):
     """Subject
-    サブジェクト
+    サブジェクトインタフェース
     オブザーバーに値の変更があれば通知する
     登録したオブザーバを管理するのはリストが望ましい
 
