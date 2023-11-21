@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from pynput import keyboard
 
-from counterModel import Counter
+from libs.counter.counterModel import Counter
 
 
 class CounterController:
@@ -23,9 +23,10 @@ class CounterController:
         with keyboard.Listener(on_press=self._incrementCount) as listener:
             listener.join()
 
-    def _incrementCount(self) -> None:
+    def _incrementCount(self, e) -> None:
         """_incrementCount
         Counterインスタンスのタイプ数を1増やす
         """
         self.__counter.increment()
+        print("うんこ")
         

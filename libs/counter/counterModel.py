@@ -3,6 +3,8 @@ from libs.observerInterface.observer import Observer
 from libs.observerInterface.subject import Subject
 
 
+
+
 class Counter(Subject):
     """Counter
     現在のタイプ数関連の情報を保持するクラス
@@ -23,6 +25,7 @@ class Counter(Subject):
         現在のタイプ数を1増やす
         """
         self.__count += 1
+        self.notifyObservers()
 
     def getCount(self) -> int:
         """getCount
@@ -49,7 +52,7 @@ class Counter(Subject):
         """notifyObservers
         登録している全てのオブザーバに値の変更を通知する
         """
-        [ob.update(self.__count) for ob in self.__observerList]
+        [ob.update() for ob in self.__observerList]
     
     def removeObserver(self) -> None:
         """removeObserver

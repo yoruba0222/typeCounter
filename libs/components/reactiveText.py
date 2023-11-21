@@ -18,24 +18,21 @@ class ReactiveText(ft.UserControl, Observer):
         コンストラクタ
 
         Args:
-            counter (Counter): 通知対象のCounterインスタンスから値を取るためにオブジェクトを取得しておく
+            __counter (Counter): 通知対象のCounterインスタンスから値を取るためにオブジェクトを取得しておく
         """
         super().__init__()
-        self.control: ft.Text = ft.Text('')
-        self.counter: Counter = c
+        self.__control: ft.Text = ft.Text('')
+        self.__counter: Counter = c
         
-    def set_counter(self, c: Counter) -> None:
-        self.counter = c
-        
-    def update(self, cnt: int):
+    def update(self):
         """update
         自身のテキストを更新する
         """
-        self.control.value = str(cnt)
-        self.control.update()
+        self.__control.value = str(self.__counter.getCount())
+        self.__control.update()
     
     def build(self) -> None:
         """build
         fletで自作コンポーネントを作るのに必要
         """
-        return self.control
+        return self.__control

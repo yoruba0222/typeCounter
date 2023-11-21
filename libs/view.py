@@ -1,20 +1,34 @@
 # -*- coding: utf-8 -*-
-from typing import Any, List, Optional, Union
 import flet as ft
-from flet_core.control import Control, OptionalNumber
-from flet_core.ref import Ref
-from flet_core.types import AnimationValue, ClipBehavior, OffsetValue, ResponsiveNumber, RotateValue, ScaleValue
 
 from libs.components.reactiveText import ReactiveText
-from libs.counter import (
-    counterController,
-    counterModel
-)
+from libs.counter.counterModel import Counter
 
 
 class View(ft.UserControl):
-    def __init__(self,):
+    """View
+    全ての見た目を決定する
+    注入はmainから行う
+
+    Attributes:
+        __counter (Counter): 
+    """
+    def __init__(self, cm: Counter) -> None:
+        """__init__
+        コンストラクタ
+
+        Args:
+            cm (Counter): オブザーバ
+        """
         super().__init__(self)
+        self.__counter: Counter = cm
+        self.__text: ReactiveText = ReactiveText(self.__counter)
+        self.__counter.addObserver(self.__text)
     
-    def build():
-        return ft.Container(ReactiveText())
+    def build(self) -> ft:
+        return ft.Row(
+            [
+                self.__text
+            ],
+            alignment=ft.MainAxisAlignment.CENTER,
+        )
