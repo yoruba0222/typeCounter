@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from pynput import keyboard
 
-from .counterModel import Counter
+from counterModel import Counter
 
 
 class CounterController:
