@@ -28,3 +28,4 @@ class CounterController:
         Counterインスタンスのタイプ数を1増やす
         """
         self.__counter.increment()
+        
