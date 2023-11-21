@@ -49,7 +49,7 @@ class Counter(Subject):
         """notifyObservers
         登録している全てのオブザーバに値の変更を通知する
         """
-        [ob.update() for ob in self.__observerList]
+        [ob.update(self.__count) for ob in self.__observerList]
     
     def removeObserver(self) -> None:
         """removeObserver
