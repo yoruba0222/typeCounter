@@ -18,7 +18,7 @@ class CounterController:
         Args:
             counter (Counter): counterModelのCounterクラスのインスタンス
         """
-        self.__counter = counter
+        self.__counter: Counter = counter
 
         with keyboard.Listener(on_press=self._incrementCount) as listener:
             listener.join()

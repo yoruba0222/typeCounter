@@ -18,7 +18,7 @@ class Counter(Subject):
         コンストラクタ
         """
         self.__observerList: list[Observer] = []
-        self.__count = 0
+        self.__count: int = 0
     
     def increment(self) -> None:
         """increment
