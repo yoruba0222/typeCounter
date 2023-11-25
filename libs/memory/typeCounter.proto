@@ -1,0 +1,8 @@
+syntax = "proto2";
+
+package typeCounter;
+
+message typeCount {
+
+    required uint64 today_count = 1;
+}

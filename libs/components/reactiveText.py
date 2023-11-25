@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import flet as ft
 
-from libs.observerInterface.observer import Observer
+from libs.interfaces.observer.observerInterface import Observer
 from libs.counter.counterModel import Counter
 
 

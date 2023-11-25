@@ -14,7 +14,6 @@ def main(page: ft.Page):
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     
     __cm= Counter()
-    print("うんち")
     
     page.add(View(__cm))
     

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import abc
 
-from libs.observerInterface.observer import Observer
+from libs.interfaces.observer.observerInterface import Observer
 
 
 # interface

@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
-from libs.observerInterface.observer import Observer
-from libs.observerInterface.subject import Subject
-
-
+from libs.interfaces.observer.observerInterface import Observer
+from libs.interfaces.observer.subjectInterface import Subject
 
 
 class Counter(Subject):
