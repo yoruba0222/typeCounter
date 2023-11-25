@@ -4,5 +4,5 @@ package typeCounter;
 
 message typeCount {
 
-    required uint64 today_count = 1;
+    required uint64 count = 1;
 }
