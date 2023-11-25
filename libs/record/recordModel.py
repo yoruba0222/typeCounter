@@ -38,6 +38,12 @@ class Record():
         finally:
             __f.close()
 
+    # get currnet record
+    def getCurrentRecord(self) -> dict:
+        __tmp_dict: dict
+        __tmp_dict["today_count"] = self.__todayCount
+        return __tmp_dict
+
     # get past record by date (yyyy-mm-dd)
     def getPastRecord(self, date: str) -> dict:
         pass
