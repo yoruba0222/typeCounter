@@ -35,7 +35,7 @@ class Record:
             __f = open(FILENAME, "wb")
             self.__tc.count = 0
             __feed_data: str = self.__tc.SerializeToString()
-            __f.write(__feed_data)
+            self.__f.write(__feed_data)
 
         finally:
             # クローズ
@@ -68,13 +68,13 @@ class Record:
             __f = open(FILENAME, "wb")
             __tc_tmp: typeCounter_pb2.typeCount = typeCounter_pb2.typeCount()
             __tc_tmp.count = data.get("today_count")
-            __feed_data: str = __tc_tmp.SeriazeToString()
+            __feed_data: str = __tc_tmp.SerializeToString()
             __f.write(__feed_data)
             self.__todayCount = data.get("today_count")
 
         except Exception as e:
             # エラーが出る
-            print(e)
+            print("エラー出てるよ:", e)
 
         finally:
             # ファイルインスタンスを閉じる

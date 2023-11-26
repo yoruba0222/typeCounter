@@ -1,13 +1,12 @@
 from pprint import pprint
-from ...libs.record.recordModel import Record
+from libs.record.recordModel import Record
 
 
-r = Record()
+def test_save():
+    r = Record()
 
-pprint(r.getCurrentRecord())
+    r.saveRecord({"today_count": 0})
 
-r.saveRecord({"today_count": 10})
+    r2 = Record()
 
-r2 = Record()
-
-pprint(r.getCurrentRecord())
+    assert r2.getCurrentRecord().get("today_count") == 0
