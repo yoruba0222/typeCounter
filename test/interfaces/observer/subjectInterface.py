@@ -13,11 +13,10 @@ class Subject(metaclass=abc.ABCMeta):
 
     Args:
         metaclass (_type_, optional): インタフェース
-
+        
     Raises:
         NotImplementedError: メソッドが定義されていない
     """
-
     @abc.abstractmethod
     def addObserver(self, observer: Observer) -> None:
         """addObserver
@@ -30,7 +29,7 @@ class Subject(metaclass=abc.ABCMeta):
             NotImplementedError: _description_
         """
         raise NotImplementedError()
-
+    
     @abc.abstractmethod
     def notifyObservers(self) -> None:
         """notifyObservers
@@ -40,7 +39,7 @@ class Subject(metaclass=abc.ABCMeta):
             NotImplementedError: _description_
         """
         raise NotImplementedError()
-
+    
     @abc.abstractmethod
     def removeObserver(self) -> None:
         """removeObservers

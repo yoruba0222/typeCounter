@@ -15,7 +15,6 @@ class Observer(metaclass=abc.ABCMeta):
     Raises:
         NotImplementedError: メソッドが定義されていない
     """
-
     @abc.abstractmethod
     def update(self) -> None:
         """update

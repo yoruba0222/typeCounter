@@ -11,9 +11,8 @@ class View(ft.UserControl):
     注入はmainから行う
 
     Attributes:
-        __counter (Counter):
+        __counter (Counter): 
     """
-
     def __init__(self, cm: Counter) -> None:
         """__init__
         コンストラクタ
@@ -25,9 +24,11 @@ class View(ft.UserControl):
         self.__counter: Counter = cm
         self.__text: ReactiveText = ReactiveText(self.__counter)
         self.__counter.addObserver(self.__text)
-
+    
     def build(self) -> ft:
         return ft.Row(
-            [self.__text],
+            [
+                self.__text
+            ],
             alignment=ft.MainAxisAlignment.CENTER,
         )

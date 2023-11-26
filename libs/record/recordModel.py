@@ -6,7 +6,8 @@ import datetime
 
 FILENAME: Final[str] = "./data.pb"
 
-class Record():
+
+class Record:
     """Record
     過去の記録の読み書きを担当する
 
@@ -14,6 +15,7 @@ class Record():
         __tc (typeCounter_pb2.typeCount): pbのクラス
         __todayCount (int): 今日タイプした回数
     """
+
     def __init__(self) -> None:
         """コンストラクタ
         現在の統計情報を読み込む
@@ -27,7 +29,7 @@ class Record():
             __f = open(FILENAME, "rb")
             self.__tc.ParseFromString(__f.read())
             self.__todayCount = self.__tc.count
-            
+
         except FileNotFoundError as e:
             # ファイルが存在しない(データを削除したか，初利用)
             __f = open(FILENAME, "wb")
@@ -36,12 +38,18 @@ class Record():
             __f.write(__feed_data)
 
         finally:
+            # クローズ
             __f.close()
 
     # get currnet record
     def getCurrentRecord(self) -> dict:
-        __tmp_dict: dict
-        __tmp_dict["today_count"] = self.__todayCount
+        """getCurrentRecord
+        現在の記録をリターンする
+
+        Returns:
+            dict: 現在の記録
+        """
+        __tmp_dict: dict = {"today_count": self.__todayCount}
         return __tmp_dict
 
     # get past record by date (yyyy-mm-dd)
@@ -49,4 +57,25 @@ class Record():
         pass
 
     def saveRecord(self, data: dict) -> None:
-        pass
+        """saveRecord
+        引数で与えた状態を保存する
+
+        Args:
+            data (dict): 保存して欲しい記録
+        """
+        try:
+            # 保存している
+            __f = open(FILENAME, "wb")
+            __tc_tmp: typeCounter_pb2.typeCount = typeCounter_pb2.typeCount()
+            __tc_tmp.count = data.get("today_count")
+            __feed_data: str = __tc_tmp.SeriazeToString()
+            __f.write(__feed_data)
+            self.__todayCount = data.get("today_count")
+
+        except Exception as e:
+            # エラーが出る
+            print(e)
+
+        finally:
+            # ファイルインスタンスを閉じる
+            __f.close()

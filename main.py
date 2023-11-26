@@ -9,14 +9,15 @@ from libs.view import View
 __cm: Counter
 __cc: CounterController
 
+
 def main(page: ft.Page):
     page.title = "Flet counter example"
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
-    
-    __cm= Counter()
-    
+
+    __cm = Counter()
+
     page.add(View(__cm))
-    
+
     __cc = CounterController(__cm)
 
 

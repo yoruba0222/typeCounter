@@ -13,7 +13,6 @@ class ReactiveText(ft.UserControl, Observer):
         control (ft.Text): fletのテキストの実態
         counter (Counter): subjectであるcounterの実態
     """
-
     def __init__(self, c: Counter = None) -> None:
         """__init__
         コンストラクタ
@@ -22,16 +21,16 @@ class ReactiveText(ft.UserControl, Observer):
             __counter (Counter): 通知対象のCounterインスタンスから値を取るためにオブジェクトを取得しておく
         """
         super().__init__()
-        self.__control: ft.Text = ft.Text("")
+        self.__control: ft.Text = ft.Text('')
         self.__counter: Counter = c
-
+        
     def update(self):
         """update
         自身のテキストを更新する
         """
         self.__control.value = str(self.__counter.getCount())
         self.__control.update()
-
+    
     def build(self) -> None:
         """build
         fletで自作コンポーネントを作るのに必要

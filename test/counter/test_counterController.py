@@ -11,7 +11,6 @@ class CounterController:
     Attributes:
         __counter (Counter): Counterインスタンス
     """
-
     def __init__(self, counter: Counter) -> None:
         """__init__
         コンストラクタ
