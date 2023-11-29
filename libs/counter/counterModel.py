@@ -43,6 +43,7 @@ class Counter(Subject):
             c (int): セットしたいタイプ数
         """
         self.__count = c
+        [ob.update() for ob in self.__observerList]
 
     #
     # over load methods

@@ -21,8 +21,11 @@ class CounterController:
         """
         self.__counter: Counter = counter
 
-        with keyboard.Listener(on_press=self._incrementCount) as listener:
-            listener.join()
+        listener = keyboard.Listener(
+        on_press=self._incrementCount)
+        listener.start()
+        # with keyboard.Listener(on_press=self._incrementCount) as listener:
+        #     listener.join()
 
     def _incrementCount(self, e) -> None:
         """_incrementCount

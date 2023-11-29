@@ -3,6 +3,7 @@ import flet as ft
 
 from libs.components.reactiveText import ReactiveText
 from libs.counter.counterModel import Counter
+from libs.record.recordModel import Record
 
 
 class View(ft.UserControl):
@@ -14,7 +15,7 @@ class View(ft.UserControl):
         __counter (Counter):
     """
 
-    def __init__(self, cm: Counter) -> None:
+    def __init__(self, cm: Counter, r: Record) -> None:
         """__init__
         コンストラクタ
 
@@ -22,7 +23,14 @@ class View(ft.UserControl):
             cm (Counter): オブザーバ
         """
         super().__init__(self)
+        # 表示機構
         self.__counter: Counter = cm
+
+        # セーブする
+        self.__record: Record = r
+        self.__counter.setCount(self.__record.getCurrentRecord().get("today_count"))
+        
+        # コンポーネント
         self.__text: ReactiveText = ReactiveText(self.__counter)
         self.__counter.addObserver(self.__text)
 

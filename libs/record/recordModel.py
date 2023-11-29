@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from typing import Final
-import typeCounter_pb2
+from libs.record import typeCounter_pb2
 import datetime
 
 
@@ -35,7 +35,7 @@ class Record:
             __f = open(FILENAME, "wb")
             self.__tc.count = 0
             __feed_data: str = self.__tc.SerializeToString()
-            self.__f.write(__feed_data)
+            __f.write(__feed_data)
 
         finally:
             # クローズ

@@ -15,7 +15,7 @@ class View(ft.UserControl):
         __counter (Counter):
     """
 
-    def __init__(self, cm: Counter) -> None:
+    def __init__(self, cm: Counter, r: Record) -> None:
         """__init__
         コンストラクタ
 
@@ -29,7 +29,7 @@ class View(ft.UserControl):
         self.__counter.addObserver(self.__text)
 
         # セーブする
-        self.__record: Record = Record()
+        self.__record: Record = r
         self.__counter.setCount(self.__record.getCurrentRecord())
 
     def build(self) -> ft:
