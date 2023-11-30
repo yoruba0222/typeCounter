@@ -8,7 +8,7 @@ To run the app:
 flet run [app_directory]
 ```
 
-## β 版
+## β 版 0
 
 ### 機能
 
